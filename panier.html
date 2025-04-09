@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mon Panier</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-pink-500 via-purple-600 to-indigo-700 text-white p-8 shadow-lg">
+    <div class="container mx-auto flex items-center justify-between">
+      <h1 class="text-4xl font-bold uppercase hover:scale-105 transition-transform">Mon Panier</h1>
+      <a href="SitwebTunisie.html" class="text-lg hover:text-pink-200 transition"><i class="fas fa-home mr-2"></i>Accueil</a>
+    </div>
+  </header>
+
+  <!-- Contenu Panier -->
+  <main class="container mx-auto py-10 px-4">
+    <section id="cartItems" class="space-y-6"></section>
+
+    <div id="cartTotal" class="text-right text-xl font-semibold mt-6">Total: 0€</div>
+
+    <!-- Message panier vide -->
+    <div id="emptyCartMessage" class="text-center text-red-600 mt-4 hidden">
+      Votre panier est vide. Ajoutez des articles avant de passer à la caisse.
+    </div>
+
+    <!-- Bouton Caisse -->
+    <button id="checkoutButton"
+            class="w-full bg-pink-500 text-white py-3 rounded-lg mt-6 text-lg shadow hover:bg-pink-600 disabled:opacity-50 disabled:cursor-not-allowed"
+            onclick="checkout()"
+            disabled>
+      Passer à la caisse
+    </button>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 p-6 text-center text-white mt-12">
+    <p>&copy; 2025 FootStyle. Tous droits réservés.</p>
+  </footer>
+
+  <!-- Script Panier -->
+  <script>
+    function displayCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartContainer = document.getElementById('cartItems');
+      const totalContainer = document.getElementById('cartTotal');
+      const checkoutBtn = document.getElementById('checkoutButton');
+      const emptyMessage = document.getElementById('emptyCartMessage');
+
+      cartContainer.innerHTML = '';
+      let total = 0;
+
+      if (cart.length === 0) {
+        checkoutBtn.disabled = true;
+        emptyMessage.classList.remove('hidden');
+      } else {
+        checkoutBtn.disabled = false;
+        emptyMessage.classList.add('hidden');
+      }
+
+      cart.forEach((item, index) => {
+        total += item.totalPrice;
+
+        const cartItem = document.createElement('div');
+        cartItem.className = "bg-white p-4 rounded shadow flex items-center justify-between";
+
+        cartItem.innerHTML = `
+          <div>
+            <h3 class="text-xl font-bold">${item.name}</h3>
+            ${item.size ? `<p class="text-gray-600">Taille : ${item.size}</p>` : ''}
+            <p class="text-gray-700">Quantité : ${item.quantity}</p>
+            <p class="text-gray-700">Prix unitaire : ${item.price}€</p>
+            <p class="text-gray-800 font-semibold">Total : ${item.totalPrice}€</p>
+            <button onclick="removeItem(${index})" class="mt-3 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Supprimer</button>
+          </div>
+          <img src="${item.image || 'https://via.placeholder.com/100'}" alt="${item.name}" class="w-24 h-24 object-cover rounded">
+        `;
+
+        cartContainer.appendChild(cartItem);
+      });
+
+      totalContainer.textContent = `Total: ${total}€`;
+    }
+
+    function removeItem(index) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      displayCart();
+    }
+
+    function checkout() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      if (cart.length === 0) {
+        alert("Votre panier est vide.");
+        return;
+      }
+      window.location.href = 'checkout.html';
+    }
+
+    window.onload = displayCart;
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Commander - Maillot Manchester United 25/26</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Bebas Neue', sans-serif;
+    }
+    .product-image {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .product-card {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .product-description {
+      font-size: 1.125rem;
+      line-height: 1.6;
+    }
+    .btn {
+      background-color: #ff0000;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 1.125rem;
+      width: 100%;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #e60000;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <header class="bg-red-700 text-white p-6 text-center">
+    <h1 class="text-3xl font-bold">Commander votre Maillot Manchester United 25/26</h1>
+  </header>
+
+  <div class="container mx-auto py-8">
+    <div class="flex justify-center items-center">
+      <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl product-card">
+        <div class="flex items-center mb-6">
+          <img src="https://xlforeal.com/cdn/shop/files/Frame_239.webp?v=1732754642&width=493" alt="Maillot Manchester United" class="product-image mb-4">
+        </div>
+
+        <h2 class="text-2xl font-semibold text-gray-700 mb-4">Maillot Manchester United 25/26</h2>
+        <p class="product-description text-gray-600 mb-6">Un maillot audacieux pour une équipe légendaire. Incarne l'esprit de Old Trafford avec ce design exclusif.</p>
+
+        <div class="mb-4">
+          <label for="size" class="block text-lg font-semibold">Choisir la taille</label>
+          <select id="size" name="size" class="mt-2 w-full p-3 border rounded">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select>
+        </div>
+
+        <div class="mb-4">
+          <label for="quantity" class="block text-lg font-semibold">Quantité</label>
+          <input type="number" id="quantity" name="quantity" value="1" min="1" class="mt-2 w-full p-3 border rounded">
+        </div>
+
+        <!-- Affichage du prix et de la réduction -->
+        <div class="flex justify-between items-center mb-6">
+          <div class="text-xl font-semibold text-gray-700">
+            Prix : <span id="price">30€</span>
+          </div>
+          <div id="discount" class="text-green-600 text-sm hidden">Réduction de 10% appliquée!</div>
+        </div>
+
+        <button class="btn" id="addToCartButton">Ajouter au panier</button>
+
+        <!-- Lien vers le panier -->
+        <div class="mt-6 text-center">
+          <a href="panier.html" class="text-lg font-semibold
