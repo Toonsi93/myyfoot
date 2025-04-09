@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MY FOOT - Maillots Officiels</title>
+
+  <!-- Google Fonts - Bebas Neue, Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2976/2976215.png" type="image/png" />
+
+  <!-- Styles personnalisés -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Bebas Neue', cursive; /* Applique Bebas Neue à tout le corps */
+    }
+    .backdrop {
+      background-image: url('https://www.krzbb.de/media.media.8b65fc5b-9373-4090-a85b-0605bc4a9d55.16x9_700.jpg');
+      background-size: contain;
+      background-position: center;
+      position: relative;
+    }
+    .backdrop::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    .backdrop-content {
+      position: relative;
+      z-index: 1;
+    }
+    .ghost-title {
+      animation: ghostEffect 4s ease-in-out infinite;
+    }
+    @keyframes ghostEffect {
+      0%, 100% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        opacity: 1;
+      }
+      50% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+        opacity: 0.7;
+      }
+    }
+    .product-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+    .product-image {
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+    .product-image:hover {
+      transform: scale(1.05);
+    }
+
+    .title-classe {
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Applique Bebas Neue à tous les éléments */
+    h1, h2, h3, h4, h5, h6, p, a, button, li {
+      font-family: 'Bebas Neue', cursive !important; /* Assure l'application partout */
+    }
+
+    /* Liens de navigation et autres éléments interactifs */
+    nav a {
+      font-family: 'Bebas Neue', cursive;
+    }
+
+    .bg-red-700:hover, .bg-pink-500:hover, .bg-green-700:hover {
+      background-color: #c50f3c !important; /* Modifie la couleur au survol */
+    }
+
+    /* Titre principal - font Bebas Neue */
+    h1 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 5rem; /* Taille ajustée pour le titre principal */
+      line-height: 1.2;
+      font-weight: 400;
+      margin-top: 50px; /* Ajoute de l'espace au-dessus du titre */
+    }
+
+    /* Sous-titre - font Poppins */
+    p {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 300;
+      font-size: 1.5rem; /* Taille plus petite que le titre */
+      color: #f0f0f0;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Header -->
+  <header class="backdrop h-[400px] flex items-center justify-center text-center text-white">
+    <div class="backdrop-content">
+      <h1 class="text-5xl font-bold ghost-title">MY FOOT - Maillots Officiels 2025</h1>
+      <p class="mt-4 text-lg">Découvrez les derniers maillots les plus convoités du moment</p>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow p-4 flex justify-center space-x-6 text-gray-600 font-semibold text-lg">
+    <a href="#" class="hover:text-red-600 transition"><i class="fas fa-home mr-1"></i>Accueil</a>
+    <a href="#produits" class="hover:text-red-600 transition"><i class="fas fa-tshirt mr-1"></i>Maillots</a>
+    <a href="#contact" class="hover:text-red-600 transition"><i class="fas fa-envelope mr-1"></i>Contact</a>
+  </nav>
+
+  <!-- Les Maillots Les Plus Demandés -->
+  <section class="py-16 px-4 text-center bg-gradient-to-r from-red-600 to-pink-600 text-white">
+    <h2 class="text-5xl font-bold mb-6 title-classe">Les Maillots Les Plus Demandés !</h2>
+    <p class="max-w-2xl mx-auto mb-12 text-xl">Qualité premium, confort ultime et designs uniques. Les plus grandes équipes sont ici, prêtes à être portées avec fierté !</p>
+    <div id="produits" class="grid md:grid-cols-3 gap-8">
+      <!-- Produit 1 -->
+      <div class="product-card bg-white p-6 rounded-lg shadow-xl">
+        <a href="produit-manchester.html">
+          <img src="https://xlforeal.com/cdn/shop/files/Frame_239.webp?v=1732754642&width=493" alt="Maillot Manchester United" class="product-image mb-4">
+        </a>
+        <h3 class="text-2xl font-semibold mb-3">Manchester United 25/26</h3>
+        <p class="text-gray-700 mb-4">Un maillot audacieux pour une équipe légendaire. Incarne l'esprit de Old Trafford avec ce nouveau design exclusif.</p>
+        <a href="produit-manchester.html" class="bg-red-700 text-white px-6 py-2 rounded-lg shadow-lg hover:bg-red-800 transition">Acheter</a>
+      </div>
+
+      <!-- Produit 2 (Maillot Japon) -->
+      <div class="product-card bg-white p-6 rounded-lg shadow-xl">
+        <a href="produit-japon.html">
+          <img src="https://xlforeal.com/cdn/shop/files/japan_flowers_copyright1.png?v=1740976349&width=493" alt="Maillot Japon" class="product-image mb-4">
+        </a>
+        <h3 class="text-2xl font-semibold mb-3">Japon 2024</h3>
+        <p class="text-gray-700 mb-4">Design moderne inspiré de la tradition nippone. Idéal pour les fans de style et de précision japonaise.</p>
+        <a href="produit-japon.html" class="bg-pink-500 text-white px-6 py-2 rounded-lg shadow-lg hover:bg-pink-600 transition">Acheter</a>
+      </div>
+
+      <!-- Produit 3 (Maillot Italie) -->
+      <div class="product-card bg-white p-6 rounded-lg shadow-xl">
+        <a href="produit-italie.html">
+          <img src="https://xlforeal.com/cdn/shop/files/italia_heritage_stussy_front_copyright_2_copie.webp?v=1726819373&width=493" alt="Maillot Italie" class="product-image mb-4">
+        </a>
+        <h3 class="text-2xl font-semibold mb-3">Italie 2024</h3>
+        <p class="text-gray-700 mb-4">Le style à l’italienne dans toute sa splendeur. Porte les couleurs de la Squadra Azzurra avec fierté.</p>
+        <a href="produit-italie.html" class="bg-green-700 text-white px-6 py-2 rounded-lg shadow-lg hover:bg-green-800 transition">Acheter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Avantages -->
+  <section class="bg-white py-12 mt-12 text-center">
+    <h2 class="text-3xl font-semibold text-gray-700 mb-4">Pourquoi choisir FootStyle ?</h2>
+    <p class="max-w-3xlmx-auto text-gray-600 leading-relaxed">
+      ✔️ Maillots 100% authentiques et certifiés <br>
+      🚚 Livraison rapide en 48/72h <br>
+      💳 Paiement sécurisé <br>
+      📦 Retours faciles sous 14 jours
+    </p>
+  </section>
+
+  <!-- Contact -->
+  <footer id="contact" class="bg-gray-800 p-6 text-center text-white mt-12">
+    <p class="mb-2">Besoin d’aide ?
